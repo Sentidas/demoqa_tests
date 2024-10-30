@@ -3,8 +3,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.by;
+import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selenide.*;
 
 public class SimpleTest {
 
@@ -21,6 +22,11 @@ public class SimpleTest {
     public void fillSimpleForm() {
         open("/text-box");
         $("#userName").setValue("Lena");
+       // $("[id=userName]").setValue("Lena");
+       // $(by("id", "userName")).setValue("Lena");
+       //$(byId("userName")).setValue("Lena");
+       //$x("//*[@id='userName'").setValue("Lena");
+
         $("#userEmail").setValue("Lena@lena.ru");
         $("#currentAddress").setValue("Volgograd");
         $("#permanentAddress").setValue("Italia");
