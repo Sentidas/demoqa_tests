@@ -2,25 +2,27 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeFormTest {
+public class PracticeFormWithCommentsTest {
 
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
+
     }
 
     @Test
     void fillPracticeForm() {
         open("/automation-practice-form");
+        // Selenide.executeJavaScript("$('#fixedban').remove()"); // скрыть баннер-рекламу через передачу команды браузеру
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
@@ -30,17 +32,21 @@ public class PracticeFormTest {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption("1998");
         $(".react-datepicker__month-select").selectOption("May");
+        //$(".react-datepicker__day--029.react-datepicker__day--outside-month").click();//  дата предыдущего месяца
         $(".react-datepicker__day--029:not(.react-datepicker__day--outside-month)").click(); // дата текущего месяца
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("img/hello.png");
+        //  $("#uploadPicture").uploadFile(new File("src/test/resources/img/hello.png"));
         $("#currentAddress").setValue("Some address 1");
         $(("#react-select-3-input")).scrollTo();
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();
+        // $(("#react-select-3-input")).setValue("Haryana").pressEnter();
         $("#submit").click();
+
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
