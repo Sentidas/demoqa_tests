@@ -17,13 +17,14 @@ public class RegistrationPage {
             genderWrapper= $("#genterWrapper"),
             subjectInput= $("#subjectsInput"),
             calendarInput= $("#dateOfBirthInput"),
-            hobbieInput=$("#hobbiesWrapper"),
-     currentAddress= $("#currentAddress"),
-     stateInput= $("#state"),
-     stateCityWrapper= $("#stateCity-wrapper"),
-     cityInput= $("#city"),
-     submitButton= $("#submit"),
-     tableResponsive =       $(".table-responsive"),
+            hobbiesInput=$("#hobbiesWrapper"),
+            currentAddress= $("#currentAddress"),
+            stateInput= $("#state"),
+            stateCityWrapper= $("#stateCity-wrapper"),
+            cityInput= $("#city"),
+            submitButton= $("#submit"),
+            tableResponsive =       $(".table-responsive"),
+            formWrapper = $(".practice-form-wrapper"),
             pathFile=$("#uploadPicture");
 
      CalendarComponent calendarComponent = new CalendarComponent();
@@ -69,7 +70,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage selectHobbies(String hobbie) {
-        hobbieInput.$(byText(hobbie)).click();
+        hobbiesInput.$(byText(hobbie)).click();
         return this;
     }
     public RegistrationPage uploadPicture(String path) {
@@ -94,9 +95,15 @@ public class RegistrationPage {
 
     }
 
+    public void checkFormControl(){
+        formWrapper.shouldHave(text("Student Registration Form"));
+    }
+
     public RegistrationPage checkResult (String key, String value) {
         tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(value));
         return this;
     }
+
+
 }
