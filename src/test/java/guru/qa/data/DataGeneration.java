@@ -1,4 +1,4 @@
-package data;
+package guru.qa.data;
 
 import com.github.javafaker.Faker;
 

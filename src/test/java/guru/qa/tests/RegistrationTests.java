@@ -1,8 +1,8 @@
-package tests;
+package guru.qa.tests;
 
-import data.DataGeneration;
+import guru.qa.data.DataGeneration;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
+import guru.qa.pages.RegistrationPage;
 
 public class RegistrationTests extends TestBase {
 
