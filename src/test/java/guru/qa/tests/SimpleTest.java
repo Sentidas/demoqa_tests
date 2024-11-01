@@ -18,7 +18,9 @@ public class SimpleTest {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
-       // Configuration.holdBrowserOpen = true;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        // Configuration.holdBrowserOpen = true;
         Configuration.timeout = 5000; //default 4000
     }
 
@@ -35,9 +37,9 @@ public class SimpleTest {
         $("#userEmail").setValue("Lena@lena.ru");
         $("#currentAddress").setValue("Volgograd");
         $("#permanentAddress").setValue("Italia");
-        $("#submit").click();
+        $("#submit").scrollTo().click();
 
-        $("#output #name").shouldHave(text("Leedgdegna"));
+        $("#output #name").shouldHave(text("Lena"));
         $("#output #email").shouldHave(text("Lena@lena.ru"));
         $("#output #currentAddress").shouldHave(text("Volgograd"));
         $("#output #permanentAddress").shouldHave(text("Italia"));
