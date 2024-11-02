@@ -1,6 +1,7 @@
 package guru.qa.tests;
 
 import guru.qa.data.DataGeneration;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import guru.qa.pages.RegistrationPage;
 
@@ -8,7 +9,7 @@ public class RegistrationTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     DataGeneration data = new DataGeneration();
-
+    @Tag("demoqa")
     @Test
     void fillRegistration() {
 
