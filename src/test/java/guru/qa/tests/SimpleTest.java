@@ -22,8 +22,8 @@ public class SimpleTest {
         Configuration.baseUrl = "https://demoqa.com";
       //  Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
-         Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; //default 4000
+      //   Configuration.holdBrowserOpen = true;
+      //  Configuration.timeout = 5000; //default 4000
     }
 
     @Test
@@ -45,10 +45,5 @@ public class SimpleTest {
         $("#output #email").shouldHave(text("Lena@lena.ru"));
         $("#output #currentAddress").shouldHave(text("Volgograd"));
         $("#output #permanentAddress").shouldHave(text("Italia"));
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
     }
 }
