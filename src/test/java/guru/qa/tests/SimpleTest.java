@@ -33,6 +33,7 @@ public class SimpleTest {
        //$(byId("userName")).setValue("Lena");
        //$x("//*[@id='userName'").setValue("Lena");
 
+
         $("#userEmail").setValue("Lena@lena.ru");
         $("#currentAddress").setValue("Volgograd");
         $("#permanentAddress").setValue("Italia");
